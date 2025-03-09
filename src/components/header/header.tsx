@@ -46,7 +46,9 @@ const Header = () => {
   }, [location]);
 
   return (
-    <header className={`sticky top-0 z-20 bg-slate-50 dark:bg-black `}>
+    <header
+      className={`sticky top-0 z-20 bg-[rgb(250,250,250)] dark:bg-black `}
+    >
       <nav className="flex items-center justify-between px-6 py-4 md:px-10 relative">
         <Link to={"/"}>
           <span className="text-3xl md:text-5xl font-semibold text-gray-900 dark:text-white">
@@ -106,7 +108,7 @@ const Header = () => {
         </ul>
 
         {isOpen && (
-          <ul className="md:hidden flex flex-col items-center absolute top-full left-0 w-full bg-white dark:bg-black py-4 px-6 space-y-2 shadow-md z-10">
+          <ul className="md:hidden flex flex-col items-center absolute top-full left-0 w-full bg-[rgb(250,250,250)] dark:bg-black py-4 px-6 space-y-2 shadow-md z-10">
             <li>
               <Button variant="ghost" className="hover:cursor-pointer">
                 <Link to={"/about-us"}>About Us</Link>
