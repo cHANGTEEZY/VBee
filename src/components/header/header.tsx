@@ -81,7 +81,7 @@ const Header = () => {
         <ul className="hidden md:flex space-x-6 text-gray-800 dark:text-white">
           <li>
             <Button variant="ghost" className="hover:cursor-pointer">
-              About Us
+              <Link to={"/about-us"}>About Us</Link>
             </Button>
           </li>
           <li>
@@ -109,7 +109,7 @@ const Header = () => {
           <ul className="md:hidden flex flex-col items-center absolute top-full left-0 w-full bg-white dark:bg-black py-4 px-6 space-y-2 shadow-md z-10">
             <li>
               <Button variant="ghost" className="hover:cursor-pointer">
-                About Us
+                <Link to={"/about-us"}>About Us</Link>
               </Button>
             </li>
             <li>

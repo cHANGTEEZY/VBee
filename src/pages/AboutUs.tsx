@@ -1,5 +1,15 @@
-const Aboutus = () => {
-  return <div>Aboutus</div>;
+import AboutUsComponent from "@/components/about-us/AboutUs";
+import Footer from "@/components/footer/footer";
+import Header from "@/components/header/header";
+
+const AboutUs = () => {
+  return (
+    <>
+      <Header />
+      <AboutUsComponent />
+      <Footer />
+    </>
+  );
 };
 
-export default Aboutus;
+export default AboutUs;
