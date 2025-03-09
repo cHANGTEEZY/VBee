@@ -45,12 +45,16 @@ const Header = () => {
     }
   }, [location]);
 
+  const scrollToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <header
       className={`sticky top-0 z-20 bg-[rgb(250,250,250)] dark:bg-black `}
     >
       <nav className="flex items-center justify-between px-6 py-4 md:px-10 relative">
-        <Link to={"/"}>
+        <Link to={"/"} onClick={scrollToTop}>
           <span className="text-3xl md:text-5xl font-semibold text-gray-900 dark:text-white">
             VBee
           </span>
