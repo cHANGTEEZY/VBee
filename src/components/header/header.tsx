@@ -20,7 +20,7 @@ const Header = () => {
 
     updateTheme();
 
-    const handleStorageChange = (e) => {
+    const handleStorageChange = (e: StorageEvent) => {
       if (e.key === "vite-ui-theme") {
         updateTheme();
       }
