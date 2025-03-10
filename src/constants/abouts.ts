@@ -6,6 +6,7 @@ import {
   Sarvajit,
   TeamCollaboration,
   Vision,
+  Background,
 } from "@/assets";
 
 export const aboutUsData = [
@@ -33,6 +34,7 @@ export const teamMembers = [
     name: "Aryan Shrestha",
     position: "Co-Founder / SEO & Marketing",
     image: Aryan,
+    backgroundImage: Background,
     bio: "Experienced leader with a passion for innovation, driving strategic direction and growth.",
   },
   {
@@ -40,6 +42,7 @@ export const teamMembers = [
     name: "Sushank Gurung",
     position: "Co-Founder / Lead Engineer",
     image: Chang,
+    backgroundImage: Background,
     bio: "Technology expert with a vision for scaling technical solutions and delivering high-impact products.",
   },
   {
@@ -47,6 +50,7 @@ export const teamMembers = [
     name: "Sachin Maharjan",
     position: "Co-Founder / Full Stack Engineer",
     image: Sachin,
+    backgroundImage: Background,
     bio: "Creative full-stack developer building intuitive, scalable applications that deliver value to users.",
   },
   {
@@ -54,6 +58,7 @@ export const teamMembers = [
     name: "Sarvajit Khadka",
     position: "Co-Founder / Data Scientist",
     image: Sarvajit,
+    backgroundImage: Background,
     bio: "Data-driven professional turning insights into actionable strategies to fuel business success.",
   },
   {
@@ -61,6 +66,7 @@ export const teamMembers = [
     name: "Shushan Pandey",
     position: "Co-Founder / Backend Engineer",
     image: Pandey,
+    backgroundImage: Background,
     bio: "Backend engineer focused on creating robust, scalable systems that power innovative tech solutions.",
   },
 ];

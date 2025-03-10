@@ -45,7 +45,14 @@ const TeamMembers = () => {
           </p>
         </motion.div>
 
-        <Carousel className="w-full">
+        <Carousel
+          className="w-full"
+          opts={{
+            loop: true,
+            align: "start",
+            skipSnaps: false,
+          }}
+        >
           <CarouselContent className="-ml-2 md:-ml-4">
             {teamMembers.map((member, index) => (
               <CarouselItem
