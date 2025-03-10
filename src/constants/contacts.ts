@@ -4,13 +4,13 @@ const contactDetails = [
   {
     title: "Sales",
     description: "For business inquiries and purchases.",
-    contactInfo: "vbeesales@gmail.com",
+    contactInfo: "VBeesales@gmail.com",
     icon: ChartArea,
   },
   {
     title: "Support",
     description: "Need help? Contact our support team.",
-    contactInfo: "vbeesupport@gmail.com",
+    contactInfo: "VBeesupport@gmail.com",
     icon: MessageCircle,
   },
   {

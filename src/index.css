@@ -5,55 +5,55 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Light Mode - Soft Lavender & Sage */
-  --background: rgb(252, 252, 255);
-  --foreground: rgb(50, 45, 65);
-  --card: rgb(246, 246, 252);
-  --card-foreground: rgb(45, 40, 60);
-  --primary: rgb(130, 110, 180);
-  --primary-foreground: rgb(250, 250, 255);
-  --secondary: rgb(180, 210, 170);
-  --secondary-foreground: rgb(45, 60, 40);
-  --accent: rgb(220, 215, 235);
-  --muted: rgb(240, 240, 245);
-  --border: rgb(225, 225, 235);
-  --input: rgb(240, 240, 250);
-  --ring: rgb(150, 130, 200);
-  --radius: 0.625rem;
-  --sidebar: rgb(252, 252, 255);
-  --sidebar-foreground: rgb(50, 45, 65);
-  --sidebar-primary: rgb(130, 110, 180);
-  --sidebar-primary-foreground: rgb(250, 250, 255);
-  --sidebar-accent: rgb(180, 210, 170);
-  --sidebar-accent-foreground: rgb(45, 60, 40);
-  --sidebar-border: rgb(225, 225, 235);
-  --sidebar-ring: rgb(150, 130, 200);
+  /* Light Mode - Cool Blue & Soft Gray */
+  --background: rgb(240, 245, 255); /* Light background with a hint of blue */
+  --foreground: rgb(30, 50, 80); /* Darker text color */
+  --card: rgb(255, 255, 255); /* White card with soft borders */
+  --card-foreground: rgb(50, 60, 80); /* Text on card */
+  --primary: rgb(50, 100, 200); /* Primary color: blue */
+  --primary-foreground: rgb(255, 255, 255); /* White text on primary elements */
+  --secondary: rgb(150, 200, 255); /* Light secondary blue for accents */
+  --secondary-foreground: rgb(30, 40, 60); /* Darker secondary text */
+  --accent: rgb(180, 220, 255); /* Lighter accent blue */
+  --muted: rgb(230, 240, 255); /* Muted blue */
+  --border: rgb(220, 230, 255); /* Soft blue border */
+  --input: rgb(240, 245, 255); /* Background for inputs */
+  --ring: rgb(60, 120, 180); /* Ring (outline) effect */
+  --radius: 0.625rem; /* Rounded corners */
+  --sidebar: rgb(250, 250, 255); /* Light sidebar background */
+  --sidebar-foreground: rgb(40, 60, 80); /* Text on sidebar */
+  --sidebar-primary: rgb(50, 100, 200); /* Sidebar primary color */
+  --sidebar-primary-foreground: rgb(255, 255, 255); /* Sidebar primary text */
+  --sidebar-accent: rgb(150, 200, 255); /* Sidebar accent color */
+  --sidebar-accent-foreground: rgb(30, 40, 60); /* Sidebar accent text */
+  --sidebar-border: rgb(220, 230, 255); /* Sidebar border */
+  --sidebar-ring: rgb(60, 120, 180); /* Sidebar ring effect */
 }
 
 .dark {
   /* Dark Mode - Deep Blue & Teal */
-  --background: oklch(0.15 0.02 240);
-  --foreground: oklch(0.95 0.01 240);
-  --card: oklch(0.18 0.03 240);
-  --card-foreground: oklch(0.95 0.01 240);
-  --primary: oklch(0.65 0.15 250);
-  --primary-foreground: oklch(0.98 0 240);
-  --secondary: oklch(0.6 0.1 180);
-  --secondary-foreground: oklch(0.98 0 240);
-  --accent: oklch(0.25 0.05 240);
-  --muted: oklch(0.25 0.03 240);
-  --border: oklch(0.25 0.04 240);
-  --input: oklch(0.2 0.03 240);
-  --ring: oklch(0.55 0.15 250);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.15 0.02 240);
-  --sidebar-foreground: oklch(0.95 0.01 240);
-  --sidebar-primary: oklch(0.65 0.15 250);
-  --sidebar-primary-foreground: oklch(0.98 0 240);
-  --sidebar-accent: oklch(0.6 0.1 180);
-  --sidebar-accent-foreground: oklch(0.98 0 240);
-  --sidebar-border: oklch(0.25 0.04 240);
-  --sidebar-ring: oklch(0.55 0.15 250);
+  --background: rgb(15, 25, 45); /* Deep blue background for dark mode */
+  --foreground: rgb(200, 220, 255); /* Light text on dark background */
+  --card: rgb(35, 55, 85); /* Dark card background */
+  --card-foreground: rgb(200, 220, 255); /* Light text on card */
+  --primary: rgb(70, 130, 210); /* Primary blue */
+  --primary-foreground: rgb(255, 255, 255); /* White text on primary elements */
+  --secondary: rgb(50, 80, 150); /* Secondary blue with a hint of teal */
+  --secondary-foreground: rgb(200, 220, 255); /* Light secondary text */
+  --accent: rgb(30, 60, 120); /* Darker blue accent */
+  --muted: rgb(25, 45, 75); /* Muted dark blue */
+  --border: rgb(60, 80, 120); /* Soft border for dark mode */
+  --input: rgb(25, 40, 70); /* Input background for dark mode */
+  --ring: rgb(90, 150, 240); /* Ring effect (light blue) */
+  --radius: 0.625rem; /* Rounded corners */
+  --sidebar: rgb(20, 30, 50); /* Dark sidebar background */
+  --sidebar-foreground: rgb(200, 220, 255); /* Light text on sidebar */
+  --sidebar-primary: rgb(70, 130, 210); /* Sidebar primary color */
+  --sidebar-primary-foreground: rgb(255, 255, 255); /* Sidebar primary text */
+  --sidebar-accent: rgb(50, 80, 150); /* Sidebar accent color */
+  --sidebar-accent-foreground: rgb(200, 220, 255); /* Sidebar accent text */
+  --sidebar-border: rgb(60, 80, 120); /* Sidebar border */
+  --sidebar-ring: rgb(90, 150, 240); /* Sidebar ring effect */
 }
 
 @theme inline {

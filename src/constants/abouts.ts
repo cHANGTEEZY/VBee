@@ -1,4 +1,12 @@
-import { TeamCollaboration, TeamPicture, Vision } from "@/assets";
+import {
+  Aryan,
+  Chang,
+  Pandey,
+  Sachin,
+  Sarvajit,
+  TeamCollaboration,
+  Vision,
+} from "@/assets";
 
 export const aboutUsData = [
   {
@@ -17,12 +25,42 @@ export const aboutUsData = [
     imageAlt: "Futuristic office space",
     isReversed: true,
   },
+];
+
+export const teamMembers = [
   {
-    title: "Our Team",
-    description:
-      "Behind every great product is an even greater team. Our diverse group of professionals brings together expertise from various fields, creating a rich tapestry of perspectives and ideas. We value collaboration, creativity, and critical thinking. Each team member contributes their unique talents to our collective success, and we celebrate both individual achievements and team victories. We're not just colleagues—we're a community united by shared goals and mutual respect.",
-    imageSrc: TeamPicture,
-    imageAlt: "Diverse team members",
-    isReversed: false,
+    id: 1,
+    name: "Aryan Shrestha",
+    position: "Co-Founder / SEO & Marketing",
+    image: Aryan,
+    bio: "Experienced leader with a passion for innovation, driving strategic direction and growth.",
+  },
+  {
+    id: 2,
+    name: "Sushank Gurung",
+    position: "Co-Founder / Lead Engineer",
+    image: Chang,
+    bio: "Technology expert with a vision for scaling technical solutions and delivering high-impact products.",
+  },
+  {
+    id: 3,
+    name: "Sachin Maharjan",
+    position: "Co-Founder / Full Stack Engineer",
+    image: Sachin,
+    bio: "Creative full-stack developer building intuitive, scalable applications that deliver value to users.",
+  },
+  {
+    id: 4,
+    name: "Sarvajit Khadka",
+    position: "Co-Founder / Data Scientist",
+    image: Sarvajit,
+    bio: "Data-driven professional turning insights into actionable strategies to fuel business success.",
+  },
+  {
+    id: 5,
+    name: "Shushan Pandey",
+    position: "Co-Founder / Backend Engineer",
+    image: Pandey,
+    bio: "Backend engineer focused on creating robust, scalable systems that power innovative tech solutions.",
   },
 ];

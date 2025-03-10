@@ -24,4 +24,9 @@ export const services = [
     description:
       "Grow your audience and engage customers effectively with our social media strategies, including content creation, community management, and paid campaigns.",
   },
+  {
+    title: "Data Cleaning and Analysis",
+    description:
+      "We process and analyze raw data to extract meaningful insights, ensuring data accuracy, consistency, and usability for business intelligence and decision-making.",
+  },
 ];
