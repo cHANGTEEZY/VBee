@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { teamMembers } from "@/constants/abouts";
 import {
   Card,
