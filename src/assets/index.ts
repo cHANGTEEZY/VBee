@@ -9,8 +9,12 @@ import Chang from "./chang.jpeg";
 import Sachin from "./sachin.jpeg";
 import Sarvajit from "./sarvajit.jpeg";
 import Pandey from "./pandey.jpeg";
+import VBeeWhite from "./VB-White.png";
+import VBeeBlack from "./VB-Black.png";
 
 export {
+  VBeeWhite,
+  VBeeBlack,
   Pandey,
   Sarvajit,
   Sachin,

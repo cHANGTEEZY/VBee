@@ -24,7 +24,7 @@ export function ModeToggle() {
       <DropdownMenuContent align="end">
         <DropdownMenuItem
           onClick={() => setTheme("light")}
-          className="hover:cursor-pointer"
+          className="hover:cursor-pointer "
         >
           Light
         </DropdownMenuItem>

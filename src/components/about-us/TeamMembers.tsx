@@ -63,9 +63,9 @@ const TeamMembers = () => {
                     <CardHeader className="p-0">
                       <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-primary/10 to-primary/30">
                         <img
-                          src={member.image || "/placeholder.svg"}
+                          src={member.image}
                           alt={member.name}
-                          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                          className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-500 scale-100"
                         />
                       </div>
                     </CardHeader>

@@ -54,13 +54,13 @@ const Footer = () => {
                 <Instagram size={20} />
                 <span className="sr-only">Twitter</span>
               </a>
-              <a
+              {/* <a
                 href="#"
                 className="text-foreground/70 hover:text-primary transition-colors"
               >
                 <Linkedin size={20} />
                 <span className="sr-only">LinkedIn</span>
-              </a>
+              </a> */}
             </div>
           </div>
 
