@@ -7,6 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { motion } from "framer-motion";
+import ContactForm from "./contactForm";
 
 const ContactUsHeroSection = () => {
   return (
@@ -58,9 +59,10 @@ const ContactDetailsCard = () => {
 
 const ContactUs = () => {
   return (
-    <div className="w-full max-w-[1200px] min-h-[500px] max-h-[800px]  flex flex-col items-center justify-center mx-auto text-center gap-10 py-10 ">
+    <div className="w-full max-w-[1200px]  flex flex-col items-center justify-center mx-auto text-center gap-10 py-10 ">
       <ContactUsHeroSection />
       <ContactDetailsCard />
+      <ContactForm />
     </div>
   );
 };

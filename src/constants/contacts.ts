@@ -4,19 +4,19 @@ const contactDetails = [
   {
     title: "Sales",
     description: "For business inquiries and purchases.",
-    contactInfo: "VBeesales@gmail.com",
+    contactInfo: "techvbee@gmail.com",
     icon: ChartArea,
   },
   {
     title: "Support",
     description: "Need help? Contact our support team.",
-    contactInfo: "VBeesupport@gmail.com",
+    contactInfo: "techvbee@gmail.com",
     icon: MessageCircle,
   },
   {
     title: "Call Us",
     description: "Reach us directly via phone.",
-    contactInfo: "+977-9800-0000-00",
+    contactInfo: "+977-9822768092",
     icon: Phone,
   },
 ];
