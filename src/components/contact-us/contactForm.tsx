@@ -20,7 +20,6 @@ import { MailIcon, PhoneIcon, SendIcon } from "lucide-react";
 
 export default function ContactForm() {
   const API = import.meta.env.VITE_FORM_SPREE_API_END_POINT;
-  console.log("API is", API);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
@@ -45,16 +44,13 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(
-        "https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(API, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
