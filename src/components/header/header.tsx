@@ -92,7 +92,7 @@ const Header = () => {
   };
 
   return (
-    <header className="sticky top-0 z-20">
+    <header className="sticky top-0 z-20 bg-[rgb(240,245,255)] dark:bg-[rgb(15,25,45)]">
       <nav className="flex items-center justify-between px-6 py-4 md:px-10 relative">
         <Link to={"/"} onClick={scrollToTop}>
           <span className="text-3xl md:text-5xl font-semibold text-gray-900 dark:text-white">

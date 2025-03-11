@@ -4,10 +4,13 @@ import { useEffect } from "react";
 import { motion, useAnimation, type Variants } from "framer-motion";
 
 import { aboutUsData } from "@/constants/abouts";
+import { HoverCard } from "@radix-ui/react-hover-card";
+import { HoverCardContent, HoverCardTrigger } from "../ui/hover-card";
 
 interface AboutUsSectionProps {
   title: string;
   description: string;
+  learnMore: string;
   imageSrc: string;
   imageAlt: string;
   isReversed?: boolean;
@@ -35,6 +38,7 @@ const AboutUs: React.FC = () => {
 const AboutUsSection: React.FC<AboutUsSectionProps> = ({
   title,
   description,
+  learnMore,
   imageSrc,
   imageAlt,
   isReversed = false,
@@ -139,12 +143,19 @@ const AboutUsSection: React.FC<AboutUsSectionProps> = ({
         </motion.p>
 
         <motion.div className="mt-6" variants={itemVariants}>
-          <button
-            type="button"
-            className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
-          >
-            Learn More
-          </button>
+          <HoverCard openDelay={300}>
+            <HoverCardTrigger asChild>
+              <button
+                type="button"
+                className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                Learn More
+              </button>
+            </HoverCardTrigger>
+            <HoverCardContent className="bg-[background] dark:bg-[background] w-auto">
+              {learnMore}
+            </HoverCardContent>
+          </HoverCard>
         </motion.div>
       </div>
     </motion.div>
