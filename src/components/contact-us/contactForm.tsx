@@ -3,7 +3,7 @@
 import type React from "react";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import {
   Card,
   CardContent,
@@ -12,15 +12,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { AlertCircle, MailIcon, PhoneIcon, SendIcon } from "lucide-react";
+import {
+  AlertCircle,
+  MailIcon,
+  PhoneIcon,
+  SendIcon,
+  MessageSquare,
+} from "lucide-react";
 
 export default function ContactForm() {
-  const API = import.meta.env.VITE_FORM_SPREE_API_END_POINT;
-
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
@@ -88,6 +93,9 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
+      // Replace with your actual API endpoint
+      const API = "https://formspree.io/f/your-form-id";
+
       const response = await fetch(API, {
         method: "POST",
         headers: {
@@ -126,158 +134,181 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4">
-      <Card className="w-full">
-        <CardHeader>
-          <CardTitle className="text-2xl font-bold">Contact Us</CardTitle>
-          <CardDescription>
-            Fill out the form below and we'll get back to you as soon as
-            possible.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <div className="space-y-2">
-              <Label
-                htmlFor="name"
-                className={errors.name ? "text-red-500" : ""}
-              >
-                Name
-              </Label>
-              <Input
-                id="name"
-                name="name"
-                placeholder="Your name"
-                value={formData.name}
-                onChange={handleChange}
-                className={
-                  errors.name ? "border-red-500 focus-visible:ring-red-500" : ""
-                }
-                aria-invalid={!!errors.name}
-              />
-              {errors.name && (
-                <p className="text-sm text-red-500 flex items-center gap-1 mt-1">
-                  <AlertCircle className="h-3 w-3" />
-                  {errors.name}
-                </p>
-              )}
+    <div className="container ">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="mx-auto max-w-3xl"
+      >
+        <Card className="border-2 shadow-lg p-0">
+          <CardHeader className="space-y-1 bg-muted/50 py-5">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <MessageSquare className="h-5 w-5" />
+              </div>
+              <CardTitle className="text-2xl font-bold">
+                Contact Us Directly
+              </CardTitle>
             </div>
-            <div className="space-y-2">
-              <Label
-                htmlFor="email"
-                className={errors.email ? "text-red-500" : ""}
-              >
-                Email
-              </Label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="your.email@example.com"
-                value={formData.email}
-                onChange={handleChange}
-                className={
-                  errors.email
-                    ? "border-red-500 focus-visible:ring-red-500"
-                    : ""
-                }
-                aria-invalid={!!errors.email}
-              />
-              {errors.email && (
-                <p className="text-sm text-red-500 flex items-center gap-1 mt-1">
-                  <AlertCircle className="h-3 w-3" />
-                  {errors.email}
-                </p>
+            <CardDescription className="text-base">
+              Have a specific question or request? Fill out the form below and
+              we'll respond promptly.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="pt-2 pb-6">
+            <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="grid gap-5 md:grid-cols-2">
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="name"
+                    className={errors.name ? "text-red-600" : ""}
+                  >
+                    Full Name
+                  </Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder="John Doe"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className={
+                      errors.name
+                        ? "border-destructive focus-visible:ring-destructive"
+                        : ""
+                    }
+                    aria-invalid={!!errors.name}
+                  />
+                  {errors.name && (
+                    <p className="text-sm text-red-600 flex items-center gap-1 mt-1">
+                      <AlertCircle className="h-3 w-3" />
+                      {errors.name}
+                    </p>
+                  )}
+                </div>
+                <div className="space-y-2">
+                  <Label
+                    htmlFor="email"
+                    className={errors.email ? "text-red-600" : ""}
+                  >
+                    Email Address
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="your.email@example.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={
+                      errors.email
+                        ? "border-destructive focus-visible:ring-destructive"
+                        : ""
+                    }
+                    aria-invalid={!!errors.email}
+                  />
+                  {errors.email && (
+                    <p className="text-sm text-red-600 flex items-center gap-1 mt-1">
+                      <AlertCircle className="h-3 w-3" />
+                      {errors.email}
+                    </p>
+                  )}
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label
+                  htmlFor="subject"
+                  className={errors.subject ? "text-red-600" : ""}
+                >
+                  Subject
+                </Label>
+                <Input
+                  id="subject"
+                  name="subject"
+                  placeholder="How can we help you?"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className={
+                    errors.subject
+                      ? "border-destructive focus-visible:ring-destructive"
+                      : ""
+                  }
+                  aria-invalid={!!errors.subject}
+                />
+                {errors.subject && (
+                  <p className="text-sm text-red-600 flex items-center gap-1 mt-1">
+                    <AlertCircle className="h-3 w-3" />
+                    {errors.subject}
+                  </p>
+                )}
+              </div>
+              <div className="space-y-2">
+                <Label
+                  htmlFor="message"
+                  className={errors.message ? "text-red-600" : ""}
+                >
+                  Message
+                </Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell us more about your inquiry..."
+                  className={`min-h-[150px] ${
+                    errors.message
+                      ? "border-destructive focus-visible:ring-destructive"
+                      : ""
+                  }`}
+                  value={formData.message}
+                  onChange={handleChange}
+                  aria-invalid={!!errors.message}
+                />
+                {errors.message && (
+                  <p className="text-sm text-red-600 flex items-center gap-1 mt-1">
+                    <AlertCircle className="h-3 w-3" />
+                    {errors.message}
+                  </p>
+                )}
+              </div>
+            </form>
+          </CardContent>
+          <CardFooter className="flex flex-col space-y-4 bg-muted/30 px-6 py-4">
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full"
+              disabled={isSubmitting}
+              onClick={handleSubmit}
+            >
+              {isSubmitting ? (
+                <span className="flex items-center gap-2">
+                  <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                  Sending...
+                </span>
+              ) : (
+                <span className="flex items-center gap-2">
+                  <SendIcon className="h-4 w-4" />
+                  Send Message
+                </span>
               )}
-            </div>
-            <div className="space-y-2">
-              <Label
-                htmlFor="subject"
-                className={errors.subject ? "text-red-500" : ""}
-              >
-                Subject
-              </Label>
-              <Input
-                id="subject"
-                name="subject"
-                placeholder="How can we help you?"
-                value={formData.subject}
-                onChange={handleChange}
-                className={
-                  errors.subject
-                    ? "border-red-500 focus-visible:ring-red-500"
-                    : ""
-                }
-                aria-invalid={!!errors.subject}
-              />
-              {errors.subject && (
-                <p className="text-sm text-red-500 flex items-center gap-1 mt-1">
-                  <AlertCircle className="h-3 w-3" />
-                  {errors.subject}
-                </p>
-              )}
-            </div>
-            <div className="space-y-2">
-              <Label
-                htmlFor="message"
-                className={errors.message ? "text-red-500" : ""}
-              >
-                Message
-              </Label>
-              <Textarea
-                id="message"
-                name="message"
-                placeholder="Tell us more about your inquiry..."
-                className={`min-h-[120px] ${
-                  errors.message
-                    ? "border-red-500 focus-visible:ring-red-500"
-                    : ""
-                }`}
-                value={formData.message}
-                onChange={handleChange}
-                aria-invalid={!!errors.message}
-              />
-              {errors.message && (
-                <p className="text-sm text-red-500 flex items-center gap-1 mt-1">
-                  <AlertCircle className="h-3 w-3" />
-                  {errors.message}
-                </p>
-              )}
-            </div>
-          </form>
-        </CardContent>
-        <CardFooter className="flex flex-col space-y-4">
-          <Button
-            type="submit"
-            className="w-full"
-            disabled={isSubmitting}
-            onClick={handleSubmit}
-          >
-            {isSubmitting ? (
-              <span className="flex items-center gap-2">
-                <span className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                Sending...
-              </span>
-            ) : (
-              <span className="flex items-center gap-2">
-                <SendIcon className="h-4 w-4" />
-                Send Message
-              </span>
-            )}
-          </Button>
+            </Button>
 
-          <div className="flex flex-col sm:flex-row justify-between w-full text-sm text-muted-foreground gap-2">
-            <div className="flex items-center gap-2">
-              <MailIcon className="h-4 w-4" />
-              <span>techvbee@gmail.com</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 w-full text-sm text-muted-foreground gap-3 pb-3">
+              <div className="flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10">
+                  <MailIcon className="h-4 w-4 text-primary" />
+                </div>
+                <span>techvbee@gmail.com</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10">
+                  <PhoneIcon className="h-4 w-4 text-primary" />
+                </div>
+                <span>+977-9822768092</span>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <PhoneIcon className="h-4 w-4" />
-              <span>+977-9822768092</span>
-            </div>
-          </div>
-        </CardFooter>
-      </Card>
+          </CardFooter>
+        </Card>
+      </motion.div>
     </div>
   );
 }

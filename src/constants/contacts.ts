@@ -1,23 +1,23 @@
-import { ChartArea, MessageCircle, Phone } from "lucide-react";
+import { MailIcon, PhoneIcon, MapPin } from "lucide-react";
 
 const contactDetails = [
   {
-    title: "Sales",
-    description: "For business inquiries and purchases.",
+    icon: MailIcon,
+    title: "Email",
+    description: "Our friendly team is here to help.",
     contactInfo: "techvbee@gmail.com",
-    icon: ChartArea,
   },
   {
-    title: "Support",
-    description: "Need help? Contact our support team.",
-    contactInfo: "techvbee@gmail.com",
-    icon: MessageCircle,
-  },
-  {
-    title: "Call Us",
-    description: "Reach us directly via phone.",
+    icon: PhoneIcon,
+    title: "Phone",
+    description: "Mon-Fri from 8am to 5pm.",
     contactInfo: "+977-9822768092",
-    icon: Phone,
+  },
+  {
+    icon: MapPin,
+    title: "Office",
+    description: "Come say hello at our office.",
+    contactInfo: "Jhamsikhel, Lalitpur",
   },
 ];
 export default contactDetails;

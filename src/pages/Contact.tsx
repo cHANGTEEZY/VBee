@@ -6,7 +6,7 @@ const Contact = () => {
   return (
     <section>
       <Header />
-      <div className="max-w-1600px border-b-1 mb-5">
+      <div className="border-b-1 mb-5">
         <ContactUs />
       </div>
       <Footer />
