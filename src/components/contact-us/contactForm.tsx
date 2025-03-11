@@ -16,12 +16,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { MailIcon, PhoneIcon, SendIcon } from "lucide-react";
+import { AlertCircle, MailIcon, PhoneIcon, SendIcon } from "lucide-react";
 
 export default function ContactForm() {
   const API = import.meta.env.VITE_FORM_SPREE_API_END_POINT;
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -37,10 +38,53 @@ export default function ContactForm() {
       ...prev,
       [name]: value,
     }));
+
+    if (errors[name]) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
+  };
+
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Please enter a valid email address";
+    }
+
+    if (!formData.subject.trim()) {
+      newErrors.subject = "Subject is required";
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!validateForm()) {
+      toast.error("Please fix the errors in the form", {
+        description: "Some required fields are missing or invalid.",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -53,14 +97,16 @@ export default function ContactForm() {
       });
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        const errorData = await response.json().catch(() => null);
+        throw new Error(
+          errorData?.message || `Request failed with status ${response.status}`
+        );
       }
 
       toast.success("Message sent!", {
         description: "We'll get back to you as soon as possible.",
       });
 
-      // Reset form
       setFormData({
         name: "",
         email: "",
@@ -68,8 +114,10 @@ export default function ContactForm() {
         message: "",
       });
     } catch (error) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error occurred";
       toast.error("Something went wrong", {
-        description: "Your message couldn't be sent. Please try again.",
+        description: `Your message couldn't be sent. ${errorMessage}`,
       });
       console.error("Error submitting form:", error);
     } finally {
@@ -90,18 +138,37 @@ export default function ContactForm() {
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="name">Name</Label>
+              <Label
+                htmlFor="name"
+                className={errors.name ? "text-red-500" : ""}
+              >
+                Name
+              </Label>
               <Input
                 id="name"
                 name="name"
                 placeholder="Your name"
                 value={formData.name}
                 onChange={handleChange}
-                required
+                className={
+                  errors.name ? "border-red-500 focus-visible:ring-red-500" : ""
+                }
+                aria-invalid={!!errors.name}
               />
+              {errors.name && (
+                <p className="text-sm text-red-500 flex items-center gap-1 mt-1">
+                  <AlertCircle className="h-3 w-3" />
+                  {errors.name}
+                </p>
+              )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
+              <Label
+                htmlFor="email"
+                className={errors.email ? "text-red-500" : ""}
+              >
+                Email
+              </Label>
               <Input
                 id="email"
                 name="email"
@@ -109,31 +176,73 @@ export default function ContactForm() {
                 placeholder="your.email@example.com"
                 value={formData.email}
                 onChange={handleChange}
-                required
+                className={
+                  errors.email
+                    ? "border-red-500 focus-visible:ring-red-500"
+                    : ""
+                }
+                aria-invalid={!!errors.email}
               />
+              {errors.email && (
+                <p className="text-sm text-red-500 flex items-center gap-1 mt-1">
+                  <AlertCircle className="h-3 w-3" />
+                  {errors.email}
+                </p>
+              )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="subject">Subject</Label>
+              <Label
+                htmlFor="subject"
+                className={errors.subject ? "text-red-500" : ""}
+              >
+                Subject
+              </Label>
               <Input
                 id="subject"
                 name="subject"
                 placeholder="How can we help you?"
                 value={formData.subject}
                 onChange={handleChange}
-                required
+                className={
+                  errors.subject
+                    ? "border-red-500 focus-visible:ring-red-500"
+                    : ""
+                }
+                aria-invalid={!!errors.subject}
               />
+              {errors.subject && (
+                <p className="text-sm text-red-500 flex items-center gap-1 mt-1">
+                  <AlertCircle className="h-3 w-3" />
+                  {errors.subject}
+                </p>
+              )}
             </div>
             <div className="space-y-2">
-              <Label htmlFor="message">Message</Label>
+              <Label
+                htmlFor="message"
+                className={errors.message ? "text-red-500" : ""}
+              >
+                Message
+              </Label>
               <Textarea
                 id="message"
                 name="message"
                 placeholder="Tell us more about your inquiry..."
-                className="min-h-[120px]"
+                className={`min-h-[120px] ${
+                  errors.message
+                    ? "border-red-500 focus-visible:ring-red-500"
+                    : ""
+                }`}
                 value={formData.message}
                 onChange={handleChange}
-                required
+                aria-invalid={!!errors.message}
               />
+              {errors.message && (
+                <p className="text-sm text-red-500 flex items-center gap-1 mt-1">
+                  <AlertCircle className="h-3 w-3" />
+                  {errors.message}
+                </p>
+              )}
             </div>
           </form>
         </CardContent>
