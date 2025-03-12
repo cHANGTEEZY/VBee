@@ -28,7 +28,7 @@ const TeamMembers = () => {
   };
 
   return (
-    <section className="bg-background pb-15 px-4">
+    <section className="bg-background py-15 px-4 border-[1px]">
       <div className="max-w-[1300px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -39,14 +39,14 @@ const TeamMembers = () => {
           <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
             Meet Our Team
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto sm:text-1xl md:text-2xl">
             Our talented team of professionals is dedicated to delivering
             exceptional results and innovative solutions.
           </p>
         </motion.div>
 
         <Carousel
-          className="w-full"
+          className="w-full p-4"
           opts={{
             loop: true,
             align: "start",
@@ -64,9 +64,9 @@ const TeamMembers = () => {
                   initial="hidden"
                   animate="visible"
                   variants={cardVariants}
-                  className="h-full"
+                  className="h-full pb-10"
                 >
-                  <Card className="h-full overflow-hidden border-2 border-border/50 bg-card/50 backdrop-blur-sm p-0">
+                  <Card className="h-full overflow-hidden   bg-card/50 backdrop-blur-sm p-0 dark:shadow-blue-50/ hover:shadow-xl duration-200 ease-in-out">
                     <CardHeader className="p-0">
                       <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-primary/10 to-primary/30">
                         <img
