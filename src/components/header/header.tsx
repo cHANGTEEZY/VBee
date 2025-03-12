@@ -104,7 +104,6 @@ const Header = () => {
           </span>
         </Link>
 
-        {/* Mobile Menu Button */}
         <button
           type="button"
           onClick={toggleMenu}
@@ -127,7 +126,6 @@ const Header = () => {
           </svg>
         </button>
 
-        {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6 text-gray-800 dark:text-white">
           <li>
             <Button variant="ghost" className="hover:cursor-pointer">
