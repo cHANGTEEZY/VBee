@@ -44,7 +44,7 @@ npm install
 ### Start the server
 
 ```bash
-npm run deve
+npm run dev
 ```
 
 ### Note you need Form Spree account for VITE FORM SPREE API END POINT
