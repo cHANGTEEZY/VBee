@@ -29,4 +29,23 @@ Make sure you have the following installed:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/c
+git clone https://github.com/cHANGTEEZY/VBee.git
+```
+
+### Initialize and update the Repository
+
+```bash
+cd VBee
+npm install
+```
+
+### Start the server
+
+```bash
+npm run deve
+```
+
+### Note you need a account for VITE FORM SPREE API END POINT
+```bash
+VITE_FORM_SPREE_API_ENDPOINT=YOUR_FORM_SPREE_API_ENDPOINT
+```
