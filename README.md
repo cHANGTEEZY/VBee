@@ -22,7 +22,9 @@ Welcome to the **Company Portfolio Website** repository. This project is a dummy
 To get started with the project locally:
 
 ### Prerequisites
+
 Make sure you have the following installed:
+
 - Node.js (v16 or later)
 - npm or yarn
 
@@ -45,7 +47,8 @@ npm install
 npm run deve
 ```
 
-### Note you need a account for VITE FORM SPREE API END POINT
+### Note you need Form Spree account for VITE FORM SPREE API END POINT
+
 ```bash
 VITE_FORM_SPREE_API_ENDPOINT=YOUR_FORM_SPREE_API_ENDPOINT
 ```
